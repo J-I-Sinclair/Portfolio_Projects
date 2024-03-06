@@ -6,6 +6,7 @@ class scheduler:
     def open_schedule(self):
         schedule = open('schedule.txt')
         sched_string = schedule.read()
+        print(sched_string)
         schedule_list = sched_string.split(',')
         schedule.close()
         keys = []
@@ -39,9 +40,12 @@ class scheduler:
 
 
     def save_schedule(self):
-        working_schedule = str(self.working_schedule)
-        working_schedule.strip(',')
-        working_schedule.strip('{}')
+        working_schedule = ""
+        keys = self.working_schedule.keys()
+        for item in keys:
+            item_string = ',' + str(item) + ':' + str(self.working_schedule[item])
+            working_schedule = working_schedule + item_string
+        working_schedule = working_schedule.strip(',')
         schedule = open('schedule.txt', 'w')
         schedule.write(f'{working_schedule}')
         schedule.close()
@@ -60,6 +64,6 @@ schedule1 = scheduler()
 schedule1.open_schedule()
 schedule1.add_task('Fight monsters', 1000)
 schedule1.remove_task('Fight monsters')
-schedule1.add_task('Be the best', 100)
-schedule1.change_priority('Be the best', 50)
+schedule1.add_task('battle beasts', 6)
+schedule1.change_priority('BATTLE beasts', 5)
 schedule1.save_schedule()
