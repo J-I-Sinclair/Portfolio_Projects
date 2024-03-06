@@ -24,7 +24,7 @@ class scheduler:
             schedule_dict.update({x : y})
         
         self.working_schedule = schedule_dict
-        print(f"Schedule opened: {schedule_dict}")
+        print("Schedule opened")
 
     def add_task(self, task, priority):
         task = task.lower()
@@ -50,20 +50,23 @@ class scheduler:
         schedule.write(f'{working_schedule}')
         schedule.close()
         print("Schedule saved")
-        print(f'Schedule: {working_schedule}')
 
 
     def change_priority(self, task, priority):
         task = task.lower()
         self.working_schedule[task] = priority
         print(f"Priority of {task} changed to {priority}")
+
+    def show_schedule(self): # Display each item on different lines, should be super easy
+        for item in self.working_schedule:
+            print(f'{item} : {self.working_schedule[item]}')
         
         
 schedule1 = scheduler()
 
 schedule1.open_schedule()
-schedule1.add_task('Fight monsters', 1000)
-schedule1.remove_task('Fight monsters')
-schedule1.add_task('battle beasts', 6)
-schedule1.change_priority('BATTLE beasts', 5)
+schedule1.add_task('book pops vet appointment', 5)
+schedule1.add_task('add sort feature', 8)
+schedule1.add_task('Fix so that code can run with an empty text file', 6)
+schedule1.show_schedule()
 schedule1.save_schedule()
