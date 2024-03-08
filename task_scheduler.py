@@ -6,7 +6,6 @@ class scheduler:
     def open_schedule(self):
         schedule = open('schedule.txt')
         sched_string = schedule.read()
-        print(sched_string)
         schedule_list = sched_string.split(',')
         schedule.close()
         keys = []
@@ -29,7 +28,7 @@ class scheduler:
     def add_task(self, task, priority):
         task = task.lower()
         self.working_schedule.update({task : priority})
-        print("Task added")
+        print(f"Task added: {task}")
 
     def remove_task(self, task):
         task = task.lower()
@@ -72,4 +71,5 @@ class scheduler:
 schedule1 = scheduler()
 
 schedule1.open_schedule()
+schedule1.show_schedule()
 schedule1.save_schedule()
