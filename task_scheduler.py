@@ -20,7 +20,7 @@ class scheduler:
         schedule_dict = {}
         for num in range(len(keys)):
             x = keys[num]
-            y = values[num]
+            y = int(values[num])
             schedule_dict.update({x : y})
         
         self.working_schedule = schedule_dict
@@ -40,6 +40,7 @@ class scheduler:
 
 
     def save_schedule(self):
+        self.sort_schedule()
         working_schedule = ""
         keys = self.working_schedule.keys()
         for item in keys:
@@ -58,15 +59,17 @@ class scheduler:
         print(f"Priority of {task} changed to {priority}")
 
     def show_schedule(self): # Display each item on different lines, should be super easy
+        print('Your working schedule:')
         for item in self.working_schedule:
             print(f'{item} : {self.working_schedule[item]}')
         
-        
+    def sort_schedule(self):
+        sorted_dict = dict(sorted(self.working_schedule.items(), key=lambda 
+                                  item: item[1], reverse=True))
+        self.working_schedule = sorted_dict
+
+
 schedule1 = scheduler()
 
 schedule1.open_schedule()
-schedule1.add_task('book pops vet appointment', 5)
-schedule1.add_task('add sort feature', 8)
-schedule1.add_task('Fix so that code can run with an empty text file', 6)
-schedule1.show_schedule()
 schedule1.save_schedule()
