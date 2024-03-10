@@ -1,1 +1,1 @@
-finish applying for moj job:7,book pops vet appointment:5,add sort feature:8,fix so that code can run with an empty text file:6
+finish capstone task:9,cook dinner:9,finish byb tasks:8,finish applying for moj job:7,fix so that code can run with an empty text file:6,book pops vet appointment:5,buy more tea:3
