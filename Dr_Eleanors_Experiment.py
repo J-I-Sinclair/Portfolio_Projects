@@ -7,11 +7,10 @@ def data_arrangement():
     downtown_list = [25, 18, 22, 21, 26]
 
     location_data_list = [centre_list, industrial_list, residential_list, rural_list, downtown_list]
-    location_data_name_list = ['centre_list', 'industrial_list', 'residential_list', 'rural_list', 'downtown_list']
 
     location_data_dict = {}
     for entry in range(len(location_list)):
-        key = location_data_name_list[entry]
+        key = location_list[entry]
         value = location_data_list[entry]
         location_data_dict.update({key : value})
 
@@ -36,7 +35,7 @@ def data_alteration():
                                 " Enter your choice here: ")
         
         while location_choice.lower() != "exit":
-            for choice1 in location_data_dict.keys():
+            for choice1 in dict_keys:
                 while choice1 == location_choice.lower():
                         new_value = int(input("Insert radiation figure here: "))
                         location_data_dict[choice1].append(new_value)
